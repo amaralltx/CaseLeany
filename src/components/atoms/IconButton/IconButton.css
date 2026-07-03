@@ -1,0 +1,33 @@
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.icon-button--floating {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1.5px solid white;
+  backdrop-filter: blur(7px);
+}
+
+.icon-button--active {
+  color: var(--color-favorite-active);
+}
+
+.icon-button:hover {
+  transform: scale(1.04);
+}
+
+.icon-button:focus-visible {
+  outline: 3px solid rgba(86, 151, 216, 0.42);
+  outline-offset: 2px;
+}

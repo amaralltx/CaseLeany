@@ -1,0 +1,23 @@
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-app-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-shell__content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 0 92px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-app);
+}
+
+@media (min-width: 780px) {
+  .app-shell__content {
+    width: min(100%, 1200px);
+    padding: 0 28px 110px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,10 @@
+.pokedex-controls {
+  padding: 16px;
+  background: var(--color-surface);
+}
+
+.pokedex-controls__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

@@ -1,0 +1,1 @@
+export type NavItemId = 'pokedex' | 'explore' | 'favorites' | 'profile';

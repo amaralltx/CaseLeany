@@ -1,0 +1,35 @@
+.dynamic-header {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+  z-index: 4;
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  min-height: 66px;
+}
+
+.dynamic-header__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dynamic-header__back-button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.dynamic-header__title {
+  margin: 0;
+  color: var(--color-pill);
+  font-size: 18px;
+  font-weight: 600;
+}

@@ -1,0 +1,104 @@
+.pokemon-card {
+  --pokemon-main-color: #979da3;
+  --pokemon-soft-color: #eef0f2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 128px;
+  height: 102px;
+  border-radius: var(--radius-card);
+  background: var(--pokemon-soft-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.pokemon-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 10px 12px 16px;
+}
+
+.pokemon-card__number {
+  color: var(--color-pill);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pokemon-card__name {
+  color: var(--color-text);
+  font-size: 21px;
+  font-weight: 600;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pokemon-card__badges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pokemon-card__visual {
+  min-width: 126px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-card);
+  background: var(--pokemon-main-color);
+}
+
+.pokemon-card__image {
+  position: relative;
+  z-index: 1;
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.16));
+}
+
+.pokemon-card__favorite {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+}
+
+@media (min-width: 780px) {
+  .pokemon-card {
+    min-height: 126px;
+    grid-template-columns: minmax(0, 1fr) 144px;
+  }
+
+  .pokemon-card__name {
+    font-size: 23px;
+  }
+
+  .pokemon-card__image,
+  .pokemon-card__aura {
+    width: 108px;
+    height: 108px;
+  }
+}
+
+
+.pokemon-card__aura {
+  position: absolute;
+
+  width: 94px;
+  height: 94px;
+  pointer-events: none;
+
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.08) 100%);
+
+  mask-image: var(--pokemon-type-icon-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  -webkit-mask-image: var(--pokemon-type-icon-url);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}

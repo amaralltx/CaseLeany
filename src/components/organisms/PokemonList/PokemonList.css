@@ -1,0 +1,116 @@
+.pokemon-list {
+  display: grid;
+  gap: 18px;
+  padding-inline: 16px;
+}
+
+.pokemon-list__grid {
+  display: grid;
+  gap: 10px;
+}
+
+.pokemon-list__load-more {
+  width: 100%;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  background: var(--color-pill);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pokemon-list__load-more:disabled {
+  opacity: 0.58;
+}
+
+.pokemon-list__state {
+  display: grid;
+  gap: 6px;
+  margin-top: 40px;
+  padding: 28px 18px;
+  border-radius: 20px;
+  background: var(--color-surface-soft);
+  text-align: center;
+}
+
+.pokemon-list__state strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pokemon-list__state span {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pokemon-list__skeleton {
+  position: relative;
+  min-height: 112px;
+  border-radius: var(--radius-card);
+  background: linear-gradient(90deg, #f2f3f5 25%, #e9ebef 37%, #f2f3f5 63%);
+  background-size: 400% 100%;
+  animation: pokemon-list-shimmer 1200ms ease-in-out infinite;
+  overflow: hidden;
+}
+
+.pokemon-list__skeleton-line,
+.pokemon-list__skeleton-pill,
+.pokemon-list__skeleton-image {
+  position: absolute;
+  display: block;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.pokemon-list__skeleton-line--small {
+  top: 22px;
+  left: 18px;
+  width: 52px;
+  height: 10px;
+}
+
+.pokemon-list__skeleton-line--large {
+  top: 42px;
+  left: 18px;
+  width: 126px;
+  height: 20px;
+}
+
+.pokemon-list__skeleton-pill {
+  top: 76px;
+  left: 18px;
+  width: 78px;
+  height: 22px;
+}
+
+.pokemon-list__skeleton-image {
+  top: 14px;
+  right: 18px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+}
+
+@keyframes pokemon-list-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (min-width: 780px) {
+  .pokemon-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1120px) {
+  .pokemon-list__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
