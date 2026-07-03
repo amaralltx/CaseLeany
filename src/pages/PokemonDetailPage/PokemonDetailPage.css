@@ -24,9 +24,12 @@
   min-width: 498px;
   transform: translate(-12.5%, -50%);
   border-radius: 50%;
-  background-image: linear-gradient(135deg,
-      var(--pokemon-main-color) 25%,
-      #a7d9a2 100%);
+  background-image: linear-gradient(135deg, var(--pokemon-main-color) 25%, #a7d9a2 100%);
+
+  @media (min-width: 1024px) {
+    transform: translate(0%, -50%);
+  }
+
 }
 
 .pokemon-detail-hero__action {
@@ -44,10 +47,18 @@
 
 .pokemon-detail-hero__action--back {
   left: 14%;
+
+  @media (min-width: 1024px) {
+    left: 32px;
+  }
 }
 
 .pokemon-detail-hero__action--favorite {
-  left: 75%;
+  right: 15%;
+
+  @media (min-width: 1024px) {
+    right: 32px
+  }
 }
 
 .pokemon-detail-hero__action--active {
@@ -153,6 +164,10 @@
   line-height: 1.45;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
+  @media (min-width: 1024px) {
+    max-width: 100%;
+  }
 }
 
 /* BASIC STATS */
@@ -420,11 +435,6 @@
   -webkit-mask-position: center;
 }
 
-/* RESPONSIVE */
-
-@media (min-width: 780px) {
-  .pokemon-detail-page {
-    max-width: var(--layout-phone);
-    margin: 0 auto;
-  }
+@media (min-width: 1024px) {
+  .pokemon-detail-page {}
 }

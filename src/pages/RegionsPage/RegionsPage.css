@@ -17,4 +17,10 @@
   color: var(--color-pill);
   font-size: 18px;
   font-weight: 600;
+
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    padding: 0;
+    margin: 0 auto;
+  }
 }

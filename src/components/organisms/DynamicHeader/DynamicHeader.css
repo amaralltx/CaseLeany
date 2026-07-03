@@ -15,6 +15,10 @@
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (min-width: 1024px) {
+    margin: 0 auto;
+  }
 }
 
 .dynamic-header__back-button {
@@ -32,4 +36,9 @@
   color: var(--color-pill);
   font-size: 18px;
   font-weight: 600;
+
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    padding: 0;
+  }
 }

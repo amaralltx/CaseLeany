@@ -69,11 +69,11 @@
   outline-offset: 2px;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1200px) {
   .sort-sheet__panel {
-    width: min(92vw, 520px);
-    max-height: 82vh;
+    width: 1200px;
+    max-height: 40vh;
     border-radius: var(--radius-sheet);
-    margin-bottom: 32px;
+    margin-left: 350px;
   }
 }

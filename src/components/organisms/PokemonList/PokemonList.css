@@ -12,11 +12,17 @@
 .pokemon-list__load-more {
   width: 100%;
   min-height: 48px;
+  max-width: 360px;
+  margin: 0 auto;
   border-radius: var(--radius-pill);
   background: var(--color-pill);
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
+
+  @media (min-width: 1024px) {
+    margin-top: 16px;
+  }
 }
 
 .pokemon-list__load-more:disabled {

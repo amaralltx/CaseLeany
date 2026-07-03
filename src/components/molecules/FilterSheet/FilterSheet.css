@@ -70,11 +70,14 @@
   outline-offset: 2px;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1024px) {
   .filter-sheet__panel {
-    width: min(92vw, 520px);
-    max-height: 82vh;
+    width: 1200px;
+    max-height: 40vh;
     border-radius: var(--radius-sheet);
-    margin-bottom: 32px;
+
+    .filter-sheet__list {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
   }
 }

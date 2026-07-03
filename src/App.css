@@ -17,7 +17,7 @@
 @media (min-width: 780px) {
   .app-shell__content {
     width: min(100%, 1200px);
-    padding: 0 28px 110px;
+    padding: 0 0 32px;
     margin: 0 auto;
   }
 }
