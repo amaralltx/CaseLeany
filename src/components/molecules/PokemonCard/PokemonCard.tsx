@@ -1,5 +1,3 @@
-// src/components/molecules/PokemonCard/PokemonCard.tsx
-
 import type { CSSProperties } from 'react';
 import { Heart } from 'lucide-react';
 import { Badge } from '../../atoms/Badge/Badge';
@@ -10,6 +8,7 @@ import { formatPokemonName, formatPokemonNumber } from '../../../utils/pokemonId
 import { TYPE_COLORS, TYPE_SOFT_COLORS } from '../../../utils/typeMeta';
 import { getTypeIcon } from '../../../utils/typeIcons';
 import './PokemonCard.css';
+import { Link } from 'react-router-dom';
 
 type PokemonCardProps = Readonly<{
   pokemon: PokemonListItem;
@@ -36,6 +35,11 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
 
   return (
     <article className="pokemon-card" style={cardStyle} aria-label={formatPokemonName(pokemon.name)}>
+      <Link
+        className="pokemon-card__detail-link"
+        to={`/pokemon/${pokemon.id}`}
+        aria-label={`Ver detalhes de ${formatPokemonName(pokemon.name)}`}
+      />
       <section className="pokemon-card__info" aria-labelledby={`pokemon-${pokemon.id}`}>
         <span className="pokemon-card__number">{formatPokemonNumber(pokemon.id)}</span>
 

@@ -68,12 +68,12 @@ export const TYPE_SOFT_COLORS: Record<PokemonTypeName, string> = {
   fairy: '#FBF1FA',
 };
 
-export function getTypeLabel(typeName: PokemonTypeName): string {
-  return TYPE_TRANSLATIONS[typeName];
-}
-
 export function isPokemonTypeName(value: string): value is PokemonTypeName {
   return POKEMON_TYPES.some((type) => type.name === value);
+}
+
+export function getTypeLabel(typeName: PokemonTypeName): string {
+  return POKEMON_TYPES.find((type) => type.name === typeName)?.label ?? typeName;
 }
 
 

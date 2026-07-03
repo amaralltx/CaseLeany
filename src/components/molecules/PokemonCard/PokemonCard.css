@@ -8,6 +8,21 @@
   background: var(--pokemon-soft-color);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.pokemon-card__detail-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.pokemon-card__favorite {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
 }
 
 .pokemon-card__info {

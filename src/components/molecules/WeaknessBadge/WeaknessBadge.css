@@ -1,0 +1,50 @@
+.weakness-badge {
+  --weakness-color: #979da3;
+  --weakness-text-color: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 0 16px 0 12px;
+  border-radius: var(--radius-pill);
+  background: var(--weakness-color);
+  color: var(--weakness-text-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.weakness-badge__icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.weakness-badge__icon::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 18px;
+  background-color: var(--weakness-color);
+
+  mask-image: var(--weakness-icon-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  -webkit-mask-image: var(--weakness-icon-url);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.weakness-badge__text {
+  min-width: 0;
+  white-space: nowrap;
+}

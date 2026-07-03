@@ -2,17 +2,29 @@ import type { ReactNode } from 'react';
 import './IconButton.css';
 
 type IconButtonProps = Readonly<{
-  ariaLabel: string;
   children: ReactNode;
-  onClick?: () => void;
+  ariaLabel: string;
   isActive?: boolean;
-  variant?: 'floating' | 'plain';
+  variant?: 'default' | 'floating';
+  onClick: () => void;
 }>;
 
-export function IconButton({ ariaLabel, children, onClick, isActive = false, variant = 'plain' }: IconButtonProps) {
+export function IconButton({
+  children,
+  ariaLabel,
+  isActive = false,
+  variant = 'default',
+  onClick,
+}: IconButtonProps) {
   return (
     <button
-      className={`icon-button icon-button--${variant}${isActive ? ' icon-button--active' : ''}`}
+      className={[
+        'icon-button',
+        `icon-button--${variant}`,
+        isActive ? 'icon-button--active' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
       type="button"
       aria-label={ariaLabel}
       aria-pressed={isActive}

@@ -3,6 +3,7 @@ import { PokedexPage } from '../pages/PokedexPage/PokedexPage';
 import { RegionsPage } from '../pages/RegionsPage/RegionsPage';
 import { RegionDetailPage } from '../pages/RegionDetailPage/RegionDetailPage';
 import { FavoritesPage } from '../pages/FavoritesPage/FavoritesPage';
+import { PokemonDetailPage } from '../pages/PokemonDetailPage/PokemonDetailPage';
 
 export function AppRoutes() {
   return (
@@ -11,6 +12,7 @@ export function AppRoutes() {
       <Route path="/pokedex" element={<PokedexPage />} />
       <Route path="/regions" element={<RegionsPage />} />
       <Route path="/regions/:regionId" element={<RegionDetailPage />} />
+      <Route path="/pokemon/:pokemonId" element={<PokemonDetailPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );

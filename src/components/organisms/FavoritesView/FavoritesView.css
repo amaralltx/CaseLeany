@@ -43,6 +43,7 @@
   gap: 8px;
   border-radius: 22px;
   text-align: center;
+  margin-top: 120px;
 }
 
 .favorites-view__empty strong {
