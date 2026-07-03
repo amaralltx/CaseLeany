@@ -1,135 +1,318 @@
-# Pokédex React Case
+# Pokédex React
 
-Aplicação frontend em **React + TypeScript + Vite** que consome a **PokeAPI** para listar Pokémon, buscar por nome, filtrar por tipo, ordenar, filtrar por região, favoritar e manter preferências em `localStorage`.
+Aplicação frontend desenvolvida em React e TypeScript para consumo da PokeAPI. O projeto apresenta listagem de Pokémon, busca, filtros, ordenação, favoritos persistentes, páginas de regiões e página de detalhes de cada Pokémon.
 
-## Funcionalidades entregues
+## Tecnologias utilizadas
 
-- Listagem inicial com **20 Pokémon**.
-- Botão **Carregar mais** para paginação incremental.
+- React
+- TypeScript
+- Vite
+- React Router DOM
+- PokeAPI
+- CSS por componente
+- LocalStorage
+- Lucide React
+
+## Funcionalidades
+
+### Pokédex
+
+- Listagem de Pokémon com nome, número, sprite e tipos.
+- Carregamento progressivo de itens.
 - Busca por nome.
-- Filtro por tipo em bottom sheet, seguindo a referência visual enviada.
+- Filtro por tipo.
 - Ordenação por:
-  - menor número primeiro;
-  - maior número primeiro;
-  - ordem alfabética crescente;
-  - ordem alfabética decrescente.
-- Filtro por regiões:
-  - Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar e Paldea.
-- Favoritar/desfavoritar Pokémon usando estado global com Context API + reducer.
-- Tela/lista de favoritos.
-- Persistência de favoritos em `localStorage`.
-- Responsividade mobile e desktop.
-- HTML semântico, loading skeleton, estados vazios e tratamento de erro.
+  - Menor número
+  - Maior número
+  - A-Z
+  - Z-A
+- Cards com cor dinâmica de acordo com o tipo principal do Pokémon.
+- Badges de tipos com ícones SVG e contraste de texto configurado por tipo.
 
-## Como rodar localmente
+### Favoritos
+
+- Favoritar e desfavoritar Pokémon.
+- Persistência dos favoritos no `localStorage`.
+- Página dedicada para visualizar os Pokémon favoritos.
+- Estado global para controle dos favoritos.
+
+### Regiões
+
+- Página com cards das regiões.
+- Cada card utiliza imagem de fundo local e exibe os três Pokémon iniciais da região.
+- Ao clicar em uma região, o usuário acessa uma página específica da região.
+- A página da região contém:
+  - Botão de voltar.
+  - Nome da região.
+  - Campo de busca.
+  - Filtro por tipo.
+  - Ordenação.
+  - Lista de Pokémon restrita à região selecionada.
+
+### Detalhes do Pokémon
+
+- Página individual acessada a partir dos cards de Pokémon.
+- Sprite animado do Pokémon usando os assets `showdown` da PokeAPI.
+- Cor de fundo dinâmica de acordo com o tipo principal.
+- Ícone do tipo principal aplicado como elemento visual de fundo.
+- Botão de voltar.
+- Botão de favoritar.
+- Nome, número, tipos e descrição.
+- Informações principais:
+  - Peso
+  - Altura
+  - Categoria
+  - Habilidade
+- Distribuição de gênero.
+- Lista de fraquezas.
+- Cadeia evolutiva.
+
+## Estrutura do projeto
+
+```txt
+src/
+  assets/
+    icons/
+      nav-bar/
+      pokemon-detail/
+      pokemon-types/
+    images/
+      regions-bg/
+
+  components/
+    atoms/
+    molecules/
+    organisms/
+
+  context/
+    FavoritesContext.tsx
+
+  hooks/
+    usePokemonCatalog.ts
+    usePokemonDetail.ts
+
+  pages/
+    FavoritesPage/
+    PokedexPage/
+    PokemonDetailPage/
+    RegionDetailPage/
+    RegionsPage/
+
+  routes/
+    AppRoutes.tsx
+
+  services/
+    pokeApi.ts
+    pokemonDetailApi.ts
+
+  types/
+    pokemon.ts
+    pokemonDetail.ts
+
+  utils/
+    filterPokemon.ts
+    pokemonIds.ts
+    regionCards.ts
+    regions.ts
+    typeIcons.ts
+    typeMeta.ts
+```
+
+## Como clonar o projeto
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
+
+Depois acesse a pasta do projeto:
+
+```bash
+cd <NOME_DA_PASTA_DO_PROJETO>
+```
+
+Caso tenha baixado o projeto como arquivo `.zip`, extraia o conteúdo e abra a pasta raiz no terminal.
+
+## Instalação das dependências
+
+Execute:
 
 ```bash
 npm install
+```
+
+## Rodando localmente
+
+Para iniciar o ambiente de desenvolvimento:
+
+```bash
 npm run dev
 ```
 
-A aplicação ficará disponível no endereço indicado pelo Vite, normalmente:
+Depois acesse no navegador:
 
-```bash
+```txt
 http://localhost:5173
 ```
 
-## Build de produção
+## Gerando build de produção
 
 ```bash
 npm run build
+```
+
+O build será gerado na pasta:
+
+```txt
+dist/
+```
+
+## Visualizando o build localmente
+
+```bash
 npm run preview
 ```
 
-## Deploy
+## Lint
 
-Sugestão rápida usando Vercel ou Netlify:
+Caso o projeto tenha script de lint configurado no `package.json`, execute:
 
-1. Suba este projeto para um repositório público no GitHub.
-2. Importe o repositório na Vercel/Netlify.
-3. Configure:
-   - Build command: `npm run build`
-   - Output directory: `dist`
-4. Após publicar, substitua este campo pelo link final:
-
-**Link do deploy:** `adicione-aqui-o-link-do-deploy`
-
-## Organização de componentes
-
-A estrutura segue Atomic Design:
-
-```txt
-src/components
-├── atoms
-│   ├── Badge
-│   ├── IconButton
-│   ├── SearchInput
-│   └── SheetButton
-├── molecules
-│   ├── BottomNav
-│   ├── FilterSheet
-│   ├── PokemonCard
-│   └── SortSheet
-└── organisms
-    ├── AppHeader
-    ├── FavoritesView
-    └── PokemonList
+```bash
+npm run lint
 ```
 
-Cada componente `.tsx` possui seu próprio arquivo `.css` associado.
+## Rotas da aplicação
+
+A aplicação utiliza `react-router-dom`.
+
+Principais rotas:
+
+```txt
+/                    Redireciona para /pokedex
+/pokedex             Lista principal da Pokédex
+/regions             Lista de regiões
+/regions/:regionId   Lista de Pokémon da região selecionada
+/pokemon/:pokemonId  Detalhes do Pokémon
+/favorites           Lista de favoritos
+/profile             Página de conta, caso implementada
+```
+
+## Consumo da PokeAPI
+
+O projeto utiliza dados públicos da PokeAPI.
+
+Principais endpoints utilizados:
+
+```txt
+https://pokeapi.co/api/v2/pokemon
+https://pokeapi.co/api/v2/pokemon/{id}
+https://pokeapi.co/api/v2/pokemon-species/{id}
+https://pokeapi.co/api/v2/type/{type}
+```
+
+Também são utilizados sprites públicos do repositório oficial de sprites da PokeAPI, incluindo:
+
+```txt
+sprites padrão
+sprites de versões específicas
+sprites animados showdown
+```
+
+## Persistência de dados
+
+Os favoritos são armazenados no `localStorage`, permitindo que o usuário mantenha os Pokémon favoritos mesmo após recarregar a página.
+
+## Organização dos componentes
+
+O projeto segue uma organização baseada em Atomic Design:
+
+```txt
+atoms      Componentes básicos e reutilizáveis
+molecules  Composições pequenas de componentes
+organisms  Blocos maiores da interface
+pages      Telas ligadas às rotas
+```
+
+Cada componente possui seu próprio arquivo CSS associado para facilitar manutenção e isolamento visual.
+
+## Assets
+
+Os ícones SVG dos tipos ficam em:
+
+```txt
+src/assets/icons/pokemon-types/
+```
+
+Os ícones da navegação inferior ficam em:
+
+```txt
+src/assets/icons/nav-bar/
+```
+
+Os ícones da página de detalhes ficam em:
+
+```txt
+src/assets/icons/pokemon-detail/
+```
+
+As imagens de fundo dos cards de regiões ficam em:
+
+```txt
+src/assets/images/regions-bg/
+```
 
 ## Observações técnicas
 
-### TypeScript forte
+- O projeto utiliza TypeScript com tipagem forte.
+- O uso de `any` deve ser evitado.
+- As respostas da PokeAPI são tipadas nos services.
+- A seleção de tipo na Pokédex é individual, ou seja, apenas um tipo pode ser filtrado por vez.
+- Os filtros e ordenação são aplicados de forma reutilizável tanto na Pokédex quanto nas páginas de região.
+- A página de detalhes reutiliza a mesma lógica visual de cores e ícones dos tipos.
+- O botão de favorito usa estado global e reflete o estado ativo em diferentes telas.
+- Os estilos usam variáveis CSS globais para cores, espaçamentos, radius e camadas.
+- A navegação inferior utiliza `NavLink`, permitindo estado ativo automático com base na rota atual.
+- Os ícones SVG são importados com `?url` para garantir que o Vite trate os arquivos como assets.
+- A página de detalhes usa informações combinadas dos endpoints `pokemon`, `pokemon-species`, `type` e `evolution-chain`.
 
-- O projeto está com `strict`, `noUncheckedIndexedAccess` e `exactOptionalPropertyTypes` ativos.
-- Não foi usado `any`.
-- As respostas da API têm tipos dedicados em `src/types/pokeApi.ts`.
-- Os tipos de domínio da aplicação ficam em `src/types/pokemon.ts`.
-- O fetch genérico `fetchJson<TResponse>()` mantém o retorno tipado e centraliza o tratamento de erro HTTP.
+## Deploy
 
-### Otimização das requisições
+O projeto pode ser publicado em plataformas como Vercel, Netlify ou GitHub Pages.
 
-- A aplicação carrega primeiro um catálogo leve com nome, URL e número do Pokémon.
-- Os detalhes completos são buscados apenas para os Pokémon visíveis na página atual.
-- O botão **Carregar mais** busca os próximos detalhes conforme necessário.
-- O filtro por tipo usa o endpoint `/type/{type}` para restringir IDs antes de buscar detalhes completos.
-- Requisições usam `AbortController` para evitar atualização de estado após desmontagem ou troca rápida de filtros.
+Exemplo de build para deploy:
 
-### Regras de região
-
-As regiões foram mapeadas por intervalos da Pokédex nacional:
-
-- Kanto: 1–151
-- Johto: 152–251
-- Hoenn: 252–386
-- Sinnoh: 387–493
-- Unova: 494–649
-- Kalos: 650–721
-- Alola: 722–809
-- Galar: 810–905
-- Paldea: 906–1025
-
-### Persistência
-
-Os favoritos são salvos em:
-
-```txt
-pokedex:favorites:v1
+```bash
+npm run build
 ```
 
-## API usada
-
-Base URL:
+Depois, publique a pasta:
 
 ```txt
-https://pokeapi.co/api/v2
+dist/
 ```
 
-Endpoints principais:
+Caso utilize Vercel ou Netlify, configure:
 
 ```txt
-GET /pokemon?limit=1025&offset=0
-GET /pokemon/{id}
-GET /type/{type}
+Build command: npm run build
+Publish directory: dist
 ```
+
+## Requisitos atendidos
+
+- React com TypeScript.
+- Consumo de API RESTful via HTTP.
+- Listagem de pelo menos 20 Pokémon.
+- Paginação ou carregamento progressivo.
+- Busca por nome.
+- Filtro por tipo.
+- Ordenação por número e nome.
+- Favoritar e desfavoritar.
+- Persistência de favoritos.
+- Estado global para favoritos.
+- Responsividade.
+- Estrutura organizada por Atomic Design.
+- CSS separado por componente.
+- Uso de variáveis CSS.
+- Rotas para navegação entre páginas.
+- Página de detalhes do Pokémon.
+- Página de regiões com navegação para região específica.
