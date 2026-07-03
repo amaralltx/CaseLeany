@@ -5,11 +5,6 @@ import { isPokemonTypeName } from '../utils/typeMeta';
 
 const INITIAL_STATE: readonly PokemonCatalogEntry[] = [];
 
-/**
- * Cache em memória.
- * Ele permanece enquanto a aplicação estiver aberta no navegador.
- * Ao recarregar a página, esse cache é perdido.
- */
 let pokemonCatalogCache: readonly PokemonCatalogEntry[] | null = null;
 
 const pokemonTypeIdsCache = new Map<string, ReadonlySet<number>>();

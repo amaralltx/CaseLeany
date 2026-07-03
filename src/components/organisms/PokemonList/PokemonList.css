@@ -2,6 +2,9 @@
   display: grid;
   gap: 18px;
   padding-inline: 16px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 .pokemon-list__grid {
@@ -108,15 +111,21 @@
   }
 }
 
-@media (min-width: 780px) {
+@media (min-width: 640px) {
   .pokemon-list__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
   }
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 1024px) {
+  .pokemon-list {
+    padding: 24px 32px 40px;
+  }
+}
+
+@media (min-width: 1280px) {
   .pokemon-list__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
   }
 }

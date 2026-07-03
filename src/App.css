@@ -21,3 +21,10 @@
     margin: 0 auto;
   }
 }
+
+@media (min-width: 1024px) {
+  .app-shell--with-nav .app-shell__content {
+    padding-top: 82px;
+    padding-bottom: 0;
+  }
+}

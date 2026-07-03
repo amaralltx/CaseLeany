@@ -5,15 +5,16 @@ import './App.css';
 
 function AppLayout() {
   const location = useLocation();
-  const shouldShowBottomNav = !location.pathname.startsWith('/pokemon/');
+
+  const shouldShowNavigation = !location.pathname.startsWith('/pokemon/');
 
   return (
-    <div className="app-shell">
+    <div className={shouldShowNavigation ? 'app-shell app-shell--with-nav' : 'app-shell'}>
+      {shouldShowNavigation ? <BottomNav /> : null}
+
       <main className="app-shell__content" aria-label="Aplicativo Pokédex">
         <AppRoutes />
       </main>
-
-      {shouldShowBottomNav ? <BottomNav /> : null}
     </div>
   );
 }
