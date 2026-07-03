@@ -2,6 +2,9 @@
 
 Aplicação frontend desenvolvida em React e TypeScript para consumo da PokeAPI. O projeto apresenta listagem de Pokémon, busca, filtros, ordenação, favoritos persistentes, páginas de regiões e página de detalhes de cada Pokémon.
 
+##Link da aplicação hospedada
+https://amaralltx.github.io/CaseLeany/
+
 ## Tecnologias utilizadas
 
 - React
@@ -41,7 +44,7 @@ Aplicação frontend desenvolvida em React e TypeScript para consumo da PokeAPI.
 - Página com cards das regiões.
 - Cada card utiliza imagem de fundo local e exibe os três Pokémon iniciais da região.
 - Ao clicar em uma região, o usuário acessa uma página específica da região.
-- A página da região contém:
+- A página de cada região contém:
   - Botão de voltar.
   - Nome da região.
   - Campo de busca.
@@ -121,7 +124,7 @@ src/
 ## Como clonar o projeto
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/amaralltx/CaseLeany
 ```
 
 Depois acesse a pasta do projeto:
@@ -152,32 +155,6 @@ Depois acesse no navegador:
 
 ```txt
 http://localhost:5173
-```
-
-## Gerando build de produção
-
-```bash
-npm run build
-```
-
-O build será gerado na pasta:
-
-```txt
-dist/
-```
-
-## Visualizando o build localmente
-
-```bash
-npm run preview
-```
-
-## Lint
-
-Caso o projeto tenha script de lint configurado no `package.json`, execute:
-
-```bash
-npm run lint
 ```
 
 ## Rotas da aplicação
@@ -213,13 +190,13 @@ Também são utilizados sprites públicos do repositório oficial de sprites da 
 
 ```txt
 sprites padrão
-sprites de versões específicas
-sprites animados showdown
+sprites mini disponibilizados na geração VIII
+sprites animados utilizanos do pokémon showdown
 ```
 
 ## Persistência de dados
 
-Os favoritos são armazenados no `localStorage`, permitindo que o usuário mantenha os Pokémon favoritos mesmo após recarregar a página.
+Os favoritos são armazenados no `localStorage`, permitindo que o usuário mantenha os Pokémon favoritos mesmo após recarregar a página, desde que se mantenha no mesmo navegador.
 
 ## Organização dos componentes
 
@@ -263,41 +240,15 @@ src/assets/images/regions-bg/
 ## Observações técnicas
 
 - O projeto utiliza TypeScript com tipagem forte.
-- O uso de `any` deve ser evitado.
-- As respostas da PokeAPI são tipadas nos services.
-- A seleção de tipo na Pokédex é individual, ou seja, apenas um tipo pode ser filtrado por vez.
+- As respostas da PokeAPI são tipadas nos respectivos services.
 - Os filtros e ordenação são aplicados de forma reutilizável tanto na Pokédex quanto nas páginas de região.
 - A página de detalhes reutiliza a mesma lógica visual de cores e ícones dos tipos.
 - O botão de favorito usa estado global e reflete o estado ativo em diferentes telas.
 - Os estilos usam variáveis CSS globais para cores, espaçamentos, radius e camadas.
-- A navegação inferior utiliza `NavLink`, permitindo estado ativo automático com base na rota atual.
-- Os ícones SVG são importados com `?url` para garantir que o Vite trate os arquivos como assets.
+- A navegação utiliza `NavLink`, permitindo estado ativo automático com base na rota atual.
 - A página de detalhes usa informações combinadas dos endpoints `pokemon`, `pokemon-species`, `type` e `evolution-chain`.
 
-## Deploy
-
-O projeto pode ser publicado em plataformas como Vercel, Netlify ou GitHub Pages.
-
-Exemplo de build para deploy:
-
-```bash
-npm run build
-```
-
-Depois, publique a pasta:
-
-```txt
-dist/
-```
-
-Caso utilize Vercel ou Netlify, configure:
-
-```txt
-Build command: npm run build
-Publish directory: dist
-```
-
-## Requisitos atendidos
+## Requisitos do projeto
 
 - React com TypeScript.
 - Consumo de API RESTful via HTTP.
@@ -308,11 +259,6 @@ Publish directory: dist
 - Ordenação por número e nome.
 - Favoritar e desfavoritar.
 - Persistência de favoritos.
-- Estado global para favoritos.
 - Responsividade.
-- Estrutura organizada por Atomic Design.
-- CSS separado por componente.
-- Uso de variáveis CSS.
-- Rotas para navegação entre páginas.
 - Página de detalhes do Pokémon.
 - Página de regiões com navegação para região específica.
